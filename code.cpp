@@ -1,0 +1,19 @@
+class Solution
+{
+    public:
+    void inorder(Node  *root , vector<int>&v){
+        if(root==NULL){
+            return;
+        }
+        inorder(root->left , v);
+        v.push_back(root->data);
+        inorder(root->right , v);
+    }
+    int kthLargest(Node *root, int K)
+    {
+        vector<int>v;
+        inorder(root , v);
+      int s=v.size();
+      return v[s-K];
+    }
+};
